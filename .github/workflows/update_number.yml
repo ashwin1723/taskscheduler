@@ -1,0 +1,28 @@
+name: Auto Commit Number
+
+on:
+  schedule:
+    # Run the workflow once daily at midnight UTC
+    - cron: '0 0 * * *'
+
+jobs:
+  update-number:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run update_number.py
+        run: |
+          python update_number.py
+
+      - name: Push changes
+        run: |
+          git config --global user.name "Your GitHub Username"
+          git config --global user.email "Your GitHub Email"
