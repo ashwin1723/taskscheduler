@@ -22,10 +22,11 @@ jobs:
         run: |
           python update_number.py
 
-      - name: Push changes
+      - name: Configure Git
         run: |
-          git config --global user.name "ashwin1723"
-          git config --global user.email "ashwin.bhat.m@gmail.com"
+          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+
       - name: Authenticate with GitHub
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
