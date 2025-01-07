@@ -48,7 +48,7 @@ def main():
 
         # Add a random delay between updates (e.g., 1-3 hours)
         if i < updates_today - 1:  # No delay after the last update
-            delay = random.randint(3600, 10800)  # Delay in seconds (1 to 3 hours)
+            delay = random.randint(900, 3600)  # Delay in seconds (15 minutes to 1 hour)
             print(f"Waiting for {delay // 3600} hours before the next update...")
             time.sleep(delay)
 
