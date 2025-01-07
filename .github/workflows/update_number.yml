@@ -3,7 +3,7 @@ name: Auto Commit Number
 on:
   schedule:
     # Run the workflow once daily at midnight UTC
-    - cron: '0 0 * * *'
+    - cron: '1 15 * * *'
 
 jobs:
   update-number:
